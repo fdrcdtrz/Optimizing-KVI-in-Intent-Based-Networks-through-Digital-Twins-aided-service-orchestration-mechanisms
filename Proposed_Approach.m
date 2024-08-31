@@ -62,7 +62,7 @@ while n_sim<=250
     end
 
 
-    rng(13)
+    rng(1)
     for shift=0:8:72
         for time=1:48
             D_tot(time,1+shift)=randi([40*10^6,2000*10^6]); 
