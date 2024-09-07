@@ -62,7 +62,7 @@ while n_sim<=250
     end
 
 
-    rng(1)
+    rng(13)
     for shift=0:8:72
         for time=1:48
             D_tot(time,1+shift)=randi([40*10^6,2000*10^6]); 
@@ -86,15 +86,14 @@ while n_sim<=250
     scenario_3 = [1 2 2 3 3 4 5 5 5 5];
     scenario_4 = [1 1 1 1 2 3 4 4 5 5];
     
-    vec_req=[];
+    rng(n_sim);
+
     %The scenario must be changed accordingly.
     for num=1:n_utenti
-        indx = randperm(length(scenario_4),1); % Index selection 
-        I_input(num,:) = [I(categories(scenario_4(indx)),:)];% Number of requests belonging to a given intent category is queued 
+        indx = randi(length(scenario_4),1); % Index selection 
+        I_input(num,:) = [I(scenario_4(indx),:)];% Number of requests belonging to a given intent category is queued 
     end
 
-    
-    rng(n_sim);
 
     D=zeros(M,8);
     N=size(I_input,1); 
